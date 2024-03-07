@@ -1,0 +1,17 @@
+<section *ngIf="!defaultLayout" class="container__B3A h-full w-full flex">
+    <app-sidenav></app-sidenav>
+    <main>
+        <app-header></app-header>
+        <section class="content">
+            
+        </section>
+    </main>
+</section>
+
+<section *ngIf="defaultLayout" class="container__B3B h-full w-full flex flex-column">
+    <app-header></app-header>
+    <main>
+
+    </main>
+    <app-footer></app-footer>
+</section>
