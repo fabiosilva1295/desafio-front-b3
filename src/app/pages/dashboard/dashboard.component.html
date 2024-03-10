@@ -1,0 +1,29 @@
+<section class="flex flex-column gap-3 ">
+    <div class="w-full p-3 flex surface-0 border-round">
+        <div class="info__container justify-content-center px-3 flex flex-column gap-2">
+            <span class="text-bluegray-400 text-sm font-medium">Entradas</span>
+            <span class="font-bold text-800">{{100 | currency: 'R$'}}</span>
+        </div>
+        <p-divider layout="vertical"></p-divider>
+        <div class="info__container justify-content-center px-3 flex flex-column gap-2">
+            <span class="text-bluegray-400 text-sm font-medium">Saídas</span>
+            <span class="font-bold text-800">{{100 | currency: 'R$'}}</span>
+        </div>
+        <p-divider layout="vertical"></p-divider>
+        <div class="info__container justify-content-center px-3 flex flex-column gap-2">
+            <span class="text-bluegray-400 text-sm font-medium">Total</span>
+            <span class="font-bold text-800">{{100 | currency: 'R$'}}</span>
+        </div>
+    </div>
+
+    <div class="w-full align-items-center table__container border-round surface-0 p-4">
+        <div class="w-full flex justify-content-between">
+            <span>titulo</span>
+
+            <div class="filter__container text-bluegray-500 flex gap-3 cursor-pointer align-items-center bg-bluegray-50 p-2 border-round">
+                <i class="fi fi-rr-sliders-v"></i>
+                <span>Filtrar</span>
+            </div>
+        </div>
+    </div>
+</section>

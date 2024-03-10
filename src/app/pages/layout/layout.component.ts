@@ -8,7 +8,7 @@ import { LayoutType } from 'src/app/models/layout-types.enum';
 })
 export class LayoutComponent implements OnInit {
 
-  defaultLayout: number | string = LayoutType['B3B']
+  defaultLayout: number | string = LayoutType['B3A']
 
   constructor() { }
 

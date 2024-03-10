@@ -1,1 +1,25 @@
-<p>sidenav works!</p>
+<nav class="flex  h-full  flex-column min-w-min">
+    <div class="nav__container  surface-0  py-2">
+        <div class="logo-container p-4">
+            <img src="assets/logo.png" alt="Logo do Banco B3">
+        </div>
+    </div>
+
+    <div class="items-container  flex flex-column ">
+        <div *ngFor="let item of menuItems; index as i" class="category-container ">
+            <span class="m-0  font-light title-category  text-xs text-bluegray-400">{{item.category}}</span>
+            <ul class="flex flex-column gap-1 m-0  list-none">
+                <li routerLinkActive="active"  [routerLink]="menuItem.router" class="align-items-center m-0 px-4 text-bluegray-400 cursor-pointer flex gap-3" *ngFor="let menuItem of item.items; index as b">
+                    <i class="pi {{menuItem.icon}}"></i>
+                    <span>{{menuItem.label}}</span>
+                </li>
+            </ul>
+
+            <div class="px-4 w-full">
+                <p-divider styleClass="px-2" *ngIf="i < (menuItems.length - 1)"></p-divider>
+            </div>
+        </div>
+        
+        
+    </div>
+</nav>

@@ -1,0 +1,15 @@
+header {
+    background: #f8f9fd;
+}
+
+.notification__container, .search__container {
+    width: 45px;
+    height: 45px;
+    background: var(--surface-0);
+    border-radius: 50%;
+    color: var(--bluegray-400);
+}
+
+h1 {
+    color: #242a31;
+}
