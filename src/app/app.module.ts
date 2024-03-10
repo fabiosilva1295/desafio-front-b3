@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DividerModule } from 'primeng/divider';
+import { AvatarModule } from 'primeng/avatar';
+import { registerLocaleData } from '@angular/common';
+import ptbr from '@angular/common/locales/pt';
+import { TableComponent } from './components/table/table.component';
+
+registerLocaleData(ptbr)
 
 @NgModule({
   declarations: [
@@ -24,9 +31,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    RouterModule
+    RouterModule,
+    DividerModule,
+    AvatarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR' 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
