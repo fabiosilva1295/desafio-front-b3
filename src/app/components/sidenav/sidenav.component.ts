@@ -14,7 +14,6 @@ export class SidenavComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private titleService: Title
   ) { }
 
   active = {
@@ -39,11 +38,5 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getChild(route: ActivatedRoute): any {
-    if(route.firstChild){
-      return this.getChild(route.firstChild)
-    }else {
-      return this.activatedRoute
-    }
-  }
+  
 }

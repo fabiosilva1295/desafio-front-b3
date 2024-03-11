@@ -25,12 +25,16 @@ export class HeaderDashboardComponent implements OnInit {
 
   getPriceQuotes() {
     const [key] = Object.keys(this.quotes);
-    return this.quotes[key].price
+    if(key) {
+      return this.quotes[key].price
+    }else {
+      return 
+    }
   }
 
   getCurrencyUpdate() {
     const [key] = Object.keys(this.quotes);
-    return moment(new Date(this.quotes[key].timestamp * 1000)).format('DD/MM/YYYY HH:mm')
+    return moment(new Date(this.quotes[key].timestamp * 1000)).utc().format('DD/MM/YYYY HH:mm')
   }
 
   getEntradas() {

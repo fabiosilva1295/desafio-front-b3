@@ -12,8 +12,8 @@ import { PriceService } from 'src/app/services/price.service';
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private priceService: PriceService,
-    private storage: StorageService,
+    public priceService: PriceService,
+    public storage: StorageService,
   ) {}
 
   selectedMonth = moment(new Date(Date.now()));
@@ -95,6 +95,7 @@ export class DashboardComponent implements OnInit {
 
   getItemsKey(item: any) {
     const keys: any[] = Object.keys(item);
+    console.log(keys)
     const ordeBy = [];
     keys.pop()
     
