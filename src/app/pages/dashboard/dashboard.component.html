@@ -1,29 +1,60 @@
-<section class="flex flex-column gap-3 ">
-    <div class="w-full p-3 flex surface-0 border-round">
-        <div class="info__container justify-content-center px-3 flex flex-column gap-2">
-            <span class="text-bluegray-400 text-sm font-medium">Entradas</span>
-            <span class="font-bold text-800">{{100 | currency: 'R$'}}</span>
-        </div>
-        <p-divider layout="vertical"></p-divider>
-        <div class="info__container justify-content-center px-3 flex flex-column gap-2">
-            <span class="text-bluegray-400 text-sm font-medium">Saídas</span>
-            <span class="font-bold text-800">{{100 | currency: 'R$'}}</span>
-        </div>
-        <p-divider layout="vertical"></p-divider>
-        <div class="info__container justify-content-center px-3 flex flex-column gap-2">
-            <span class="text-bluegray-400 text-sm font-medium">Total</span>
-            <span class="font-bold text-800">{{100 | currency: 'R$'}}</span>
-        </div>
-    </div>
-
-    <div class="w-full align-items-center table__container border-round surface-0 p-4">
-        <div class="w-full flex justify-content-between">
-            <span>titulo</span>
-
-            <div class="filter__container text-bluegray-500 flex gap-3 cursor-pointer align-items-center bg-bluegray-50 p-2 border-round">
-                <i class="fi fi-rr-sliders-v"></i>
-                <span>Filtrar</span>
+<section class="flex page__container flex-column gap-3">
+    <div class="w-full flex gap-2 m-0 px-3 ">
+            
+        <form (ngSubmit)="add()" [formGroup]="form" class="grid w-full m-0">
+            <div class="col-12 md:col-6">
+                <input formControlName="description" pInputText placeholder="Descrição" class="m-0 w-full" type="text">
             </div>
+            <div class="col-6 md:col-2">
+                <p-dropdown placeholder="Entrada/Saída" optionValue="value" formControlName="type" [options]="options" styleClass="w-full"></p-dropdown>
+            </div>
+            <div class="col-6 md:col-2">
+                <input formControlName="value" placeholder="R$ 0,00" currencyMask pInputText class="w-full"  type="text">
+            </div>
+            <div class="col-12 md:col-2">
+                <p-button [disabled]="!form.valid" (onClick)="add()"  styleClass="w-full" label="Salvar"></p-button>
+            </div>
+        </form>
+    </div>
+    <app-header-dashboard [selectedMonth]="selectedMonth"></app-header-dashboard>
+    <div class="p-3 table__container ">
+        <div class="surface-card flex flex-column gap-2 p-4 border-round">
+            <div class="grid m-0">
+                <div class="col-6 flex  gap-2">
+                    <div (click)="onPrev()" class="button prev border-round shadow-1 flex align-items-center justify-content-center">
+                        <i class="pi pi-angle-left"></i>
+                    </div>
+                    <div class="month  shadow-1 p-3 surface-card border-round">
+                        <span>{{getSelectedMonth()}}</span>
+                    </div>
+                    <div (click)="onNext()" class="button next border-round shadow-1 flex align-items-center justify-content-center">
+                        <i class="pi pi-angle-right"></i>
+                    </div>
+                </div>
+                <div class="col-6">
+
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data; index as i">
+                        <td [ngClass]="{'{{item[key]}}': key == 'type'}" *ngFor="let key of getItemsKey(item); index as b">
+                            <span>{{item[key]}}</span>
+                        </td>
+                        <td >
+                            <i class=" cursor-pointer pi  pi-ellipsis-h"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </section>

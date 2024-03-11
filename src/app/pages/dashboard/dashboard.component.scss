@@ -1,14 +1,131 @@
-section {
-    height: 100%;
+table {
     width: 100%;
-    padding: 1rem;
-}
+    height: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
 
-.info__container {
-    width: calc(100% / 3);
-    min-height: 100%;
+
+    thead tr,
+    tbody tr {
+        width: 100%;
+        display: flex;
+        border-radius: 5px;
+
+        &:nth-child(even) {
+            background: var(--bluegray-50);
+            color: var(--bluegray-300);
+        }
+
+        th {
+            width: 100%;
+            text-align: start;
+            padding: 1rem;
+            border: 1px solid var(--surface-c);
+            border-left: 0;
+            border-right: 0;
+            font-weight: 500;
+            color: var(--bluegray-300);
+
+            white-space: nowrap;
+            width: 100%;
+            overflow: hidden; /* "overflow" value must be different from "visible" */
+
+            text-overflow: ellipsis;
+
+            &:last-child {
+                text-align: end;
+
+                white-space: nowrap;
+                width: 100%;
+                overflow: hidden; /* "overflow" value must be different from "visible" */
+
+                text-overflow: ellipsis;
+            }
+        }
+
+        td {
+            width: 100%;
+            text-align: start;
+            padding: 1rem;
+            border-left: 0;
+            border-right: 0;
+            font-weight: 500;
+
+            white-space: nowrap;
+            width: 100%;
+            overflow: hidden; /* "overflow" value must be different from "visible" */
+            
+            text-overflow: ellipsis;
+
+            &:last-child {
+                text-align: end;
+            }
+
+            &.saida {
+
+                span {
+                    color: var(--red-500) !important;
+                    padding: 0.4rem;
+                    border: 1px solid var(--red-500);
+                    border-radius: 20px;
+                    display: flex;
+                    max-width: 80px;
+                    justify-content: center;
+                    overflow: hidden;
+                }
+            }
+
+            &.entrada {
+
+                
+                span {
+                    color: var(--green-500) !important;
+                    padding: 0.3rem;
+                    border: 1px solid var(--green-500);
+                    border-radius: 20px;
+                    display: flex;
+                    max-width: 80px;
+                    justify-content: center;
+                    overflow: hidden
+
+                    
+                }
+
+                ;
+
+            }
+        }
+    }
 }
 
 .table__container {
     height: 100%;
+}
+
+.page__container {
+    overflow: auto;
+    height: calc(100% - 48px)
+}
+
+.button {
+    width: 50px;
+    height: 100%;
+    background: var(--surface-a);
+    cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+        background: var(--b3-primary-color);
+        color: var(--surface-a);
+        transition: 0.3s;
+    }
+}
+
+.month {
+    min-width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

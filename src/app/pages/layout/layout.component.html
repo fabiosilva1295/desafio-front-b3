@@ -1,7 +1,10 @@
-<section *ngIf="!defaultLayout" class="container__B3A h-full w-full flex">
-    <app-sidenav></app-sidenav>
+<section *ngIf="!defaultLayout" class=" overflow-hidden container__B3A h-full w-full flex">
+    <p-sidebar  [style]="{width:'auto', padding: '0'}" styleClass="p-0" class="md:hidden" [(visible)]="visible">
+        <app-sidenav></app-sidenav>
+    </p-sidebar>
+    <app-sidenav class="hidden md:flex "></app-sidenav>
     <main>
-        <app-header></app-header>
+        <app-header (toggleSidenav)="toggle()"></app-header>
         <section class="content">
             <router-outlet></router-outlet>
         </section>

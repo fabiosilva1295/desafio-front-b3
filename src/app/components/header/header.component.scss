@@ -1,15 +1,21 @@
-header {
-    background: #f8f9fd;
-}
-
-.notification__container, .search__container {
-    width: 45px;
-    height: 45px;
-    background: var(--surface-0);
+.menu__button {
+    width: 50px;
+    height: 50px;
+    background: var(--surface-a);
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-    color: var(--bluegray-400);
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
-h1 {
-    color: #242a31;
+header {
+    background-color: var(--surface-b);
+}
+
+.header__item {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }

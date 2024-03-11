@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 import { Menu } from 'src/app/models/menu';
 
 @Component({
@@ -8,7 +11,11 @@ import { Menu } from 'src/app/models/menu';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title
+  ) { }
 
   active = {
     indexCategory: 0,
@@ -25,28 +32,20 @@ export class SidenavComponent implements OnInit {
           router: '/dashboard',
           icon: 'pi-chart-pie'
         },
-        {
-          label: 'Carteira',
-          value: 'wallet',
-          router: '/wallet',
-          icon: 'pi-wallet'
-        }
       ]
     },
-    {
-      category: 'Configurações', 
-      items: [
-        {
-          label: 'Tema',
-          value: 'theme',
-          router: '/theme',
-          icon: 'pi-palette'
-        }
-      ]
-    }
   ]
 
   ngOnInit(): void {
+    console.log(this.activatedRoute.routeConfig)
   }
 
+  getChild(route: ActivatedRoute): any {
+    console.log(route.title)
+    if(route.firstChild){
+      return this.getChild(route.firstChild)
+    }else {
+      return this.activatedRoute
+    }
+  }
 }

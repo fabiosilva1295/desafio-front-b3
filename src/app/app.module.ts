@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeModule } from './pages/home/home.module';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -14,7 +13,10 @@ import { DividerModule } from 'primeng/divider';
 import { AvatarModule } from 'primeng/avatar';
 import { registerLocaleData } from '@angular/common';
 import ptbr from '@angular/common/locales/pt';
-import { TableComponent } from './components/table/table.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 registerLocaleData(ptbr)
 
@@ -30,10 +32,11 @@ registerLocaleData(ptbr)
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    HomeModule,
     RouterModule,
     DividerModule,
-    AvatarModule
+    AvatarModule,
+    SidebarModule,
+    HttpClientModule
   ],
   providers: [
     {

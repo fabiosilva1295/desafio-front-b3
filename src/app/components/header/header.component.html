@@ -1,17 +1,18 @@
-<header class="p-4  flex gap-3 align-items-center w-full justify-content-between flex-row-reverse">
-    <div class="profile__items flex align-items-center gap-3 flex-row-reverse">
-        <div class="p-1 border-circle surface-0">
-            <p-avatar label="FS" styleClass="flex align-items-center" size="large" shape="circle"></p-avatar>
-        </div>
-        <div class="notification__container cursor-pointer flex align-items-center justify-content-center">
-            <i class="fi fi-ss-bell"></i>
-        </div>
-        <div class="search__container flex cursor-pointer align-items-center justify-content-center">
-            <i class="fi fi-br-search"></i>
-        </div>
-    </div>
+<header class="w-full flex p-2 justify-content-between md:justify-content-end align-items-center">
+    <button (click)="toggle()" class="md:hidden flex menu__button">
+        <i class="pi pi-bars"></i>
+    </button>
 
-    <div class="router__title">
-        <h1>Fluxo de caixa</h1>
+    <div class="profile__container gap-3 flex flex-row-reverse align-items-center p-2">
+        <div class="p-1 border-circle surface-0">
+            <p-avatar styleClass="flex align-items-center" image="https://media.istockphoto.com/id/1294339577/photo/young-beautiful-woman.jpg?s=612x612&w=0&k=20&c=v41m_jNzYXQtxrr8lZ9dE8hH3CGWh6HqpieWkdaMAAM=" size="large" shape="circle"></p-avatar>
+        </div>
+
+        <div class="header__item flex align-items-center surface-0 border-circle shadow-1 justify-content-center">
+            <i class="pi pi-bell"></i>
+        </div>
+        <div class="header__item flex align-items-center surface-0 border-circle shadow-1 justify-content-center">
+            <i class="pi pi-search"></i>
+        </div>
     </div>
 </header>

@@ -1,5 +1,15 @@
-app-sidenav{
+.sidenav{
     height: 100%;
+    transition: all 0.3s ease;
+    transform: translateX(-100%);
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    @media screen and (min-width: 800px) {
+        transform: translateX(0);
+    }
 }
 
 main {
@@ -10,13 +20,15 @@ main {
     .content {
         height: 100%;
         background: #f8f9fd;
+
+        // @media(prefers-color-scheme: dark) {
+        //     background: var(--surface-a);
+        // }
     }
 }
 
 .container__B3B {
     main {
         height: 100%;
-    }
-    app-header, app-footer{
     }
 }

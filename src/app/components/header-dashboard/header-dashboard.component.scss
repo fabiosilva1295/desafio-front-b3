@@ -1,0 +1,11 @@
+.col-12, .col-6, .col-3 {
+    display: flex;
+    
+
+    .surface-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}

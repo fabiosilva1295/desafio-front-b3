@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LayoutType } from 'src/app/models/layout-types.enum';
 
 @Component({
@@ -8,11 +8,18 @@ import { LayoutType } from 'src/app/models/layout-types.enum';
 })
 export class LayoutComponent implements OnInit {
 
-  defaultLayout: number | string = LayoutType['B3A']
+  visible: boolean = false;
+
+  defaultLayout: number | string = LayoutType['B3A'];
+
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggle() {
+    this.visible = !this.visible;
   }
 
 }

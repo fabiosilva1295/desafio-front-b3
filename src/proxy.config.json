@@ -1,0 +1,6 @@
+{
+    "/dollarApi": {
+    "target": "https://economia.awesomeapi.com.br/",
+    "secure": false
+    }
+    }

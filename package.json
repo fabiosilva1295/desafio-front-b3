@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.config.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -19,11 +19,18 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "@flaticon/flaticon-uicons": "^3.1.0",
+    "@types/lodash": "^4.14.202",
+    "@types/moment": "^2.13.0",
+    "chart.js": "^4.4.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
     "ng2-currency-mask": "^13.0.3",
+    "ngx-mask": "^14.3.3",
     "primeflex": "^3.3.1",
     "primeicons": "^6.0.1",
     "primeng": "^14.2.3",
     "rxjs": "~7.5.0",
+    "swiper": "^11.0.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
