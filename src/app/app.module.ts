@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DividerModule } from 'primeng/divider';
@@ -26,7 +25,6 @@ registerLocaleData(ptbr)
     LayoutComponent,
     SidenavComponent,
     HeaderComponent,
-    FooterComponent,
   ],
   imports: [
     BrowserAnimationsModule,

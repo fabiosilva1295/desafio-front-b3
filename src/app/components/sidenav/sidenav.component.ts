@@ -37,11 +37,9 @@ export class SidenavComponent implements OnInit {
   ]
 
   ngOnInit(): void {
-    console.log(this.activatedRoute.routeConfig)
   }
 
   getChild(route: ActivatedRoute): any {
-    console.log(route.title)
     if(route.firstChild){
       return this.getChild(route.firstChild)
     }else {

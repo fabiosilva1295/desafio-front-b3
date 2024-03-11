@@ -25,7 +25,6 @@ export class HeaderDashboardComponent implements OnInit {
 
   getPriceQuotes() {
     const [key] = Object.keys(this.quotes);
-    console.log(key)
     return this.quotes[key].price
   }
 

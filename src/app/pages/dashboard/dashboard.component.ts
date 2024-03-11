@@ -16,7 +16,8 @@ export class DashboardComponent implements OnInit {
     private storage: StorageService,
   ) {}
 
-  selectedMonth = moment(new Date(Date.now()))
+  selectedMonth = moment(new Date(Date.now()));
+  isEdit: boolean = false;
 
   months = [
     'Janeiro', 
@@ -49,7 +50,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.priceService.loadQuotes()
-    this.priceService.currencyQuotes.subscribe(res => console.log(res));
     this.getData()
   }
 
@@ -79,6 +79,20 @@ export class DashboardComponent implements OnInit {
     this.getData()
   }
 
+  update(index: number) {
+
+    if(this.form.invalid) {
+      this.form.markAsDirty()
+      return
+    }
+
+    this.form.value.value = Number(this.form.value.value)
+    this.storage.update(index, this.form.value);
+    this.form.reset();
+    this.isEdit = false;
+    this.getData()
+  }
+
   getItemsKey(item: any) {
     const keys: any[] = Object.keys(item);
     const ordeBy = [];
@@ -99,5 +113,15 @@ export class DashboardComponent implements OnInit {
 
   getData() {
     this.data = this.storage.get('data', this.selectedMonth);
+  }
+
+  edit(item: any) {
+    this.form.patchValue(item);
+    this.isEdit = true;
+  }
+
+  delete(index: number) {
+    this.storage.delete(index);
+    this.getData()
   }
 }

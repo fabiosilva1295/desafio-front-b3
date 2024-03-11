@@ -48,15 +48,37 @@ export class StorageService {
     }
   }
 
-  add(event: any) {
+  add(item: any) {
     let data = localStorage.getItem('data');
     if(data) {
       let items  = JSON.parse(data);
-      items.push(event);
+      items.push(item);
 
       this.setData('data', items);
     }else {
-      let items = [event];
+      let items = [item];
+      this.setData('data', items);
+    }
+  }
+
+  update(index: number, item:any) {
+    let data = localStorage.getItem('data');
+    if(data) {
+      let items  = JSON.parse(data);
+      items[index] = item;
+      this.setData('data', items);
+    }else {
+      return 
+    }
+  }
+
+
+  delete(index: number) {
+    let data = localStorage.getItem('data');
+    if(data) {
+      let items  = JSON.parse(data);
+      items = items.filter((item: any, i: number) => i !== index);
+
       this.setData('data', items);
     }
   }

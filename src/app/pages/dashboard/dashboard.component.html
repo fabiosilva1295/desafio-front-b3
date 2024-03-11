@@ -20,7 +20,7 @@
     <div class="p-3 table__container ">
         <div class="surface-card flex flex-column gap-2 p-4 border-round">
             <div class="grid m-0">
-                <div class="col-6 flex  gap-2">
+                <div class="col-12 md:col-6 flex  gap-2">
                     <div (click)="onPrev()" class="button prev border-round shadow-1 flex align-items-center justify-content-center">
                         <i class="pi pi-angle-left"></i>
                     </div>
@@ -50,7 +50,39 @@
                             <span>{{item[key]}}</span>
                         </td>
                         <td >
-                            <i class=" cursor-pointer pi  pi-ellipsis-h"></i>
+                            <i (click)="op.toggle($event)" class=" cursor-pointer pi  pi-ellipsis-h"></i>
+                            <p-overlayPanel appendTo="body" #op>
+                                <div class="flex gap-2 flex-column">
+                                    <div (click)="edit(item)" class="w-full hover:text-blue-500 cursor-pointer align-items-center py-2 flex gap-4">
+                                        <i class="pi pi-pencil"></i>
+                                        <span>Editar</span>
+                                    </div>
+    
+                                    <div (click)="delete(i)" class="w-full hover:text-red-500 cursor-pointer align-items-center flex gap-4">
+                                        <i class="pi pi-trash"></i>
+                                        <span>Excluir</span>
+                                    </div>
+                                </div>
+                            </p-overlayPanel>
+
+                            <p-dialog styleClass="p-3 shadow-none" [closable]="false" [modal]="true" [(visible)]="isEdit">
+                                <form [formGroup]="form">
+                                    <form (ngSubmit)="add()" [formGroup]="form" class="grid w-full m-0">
+                                        <div class="col-12 md:col-6">
+                                            <input formControlName="description" pInputText placeholder="Descrição" class="m-0 w-full" type="text">
+                                        </div>
+                                        <div class="col-6 md:col-2">
+                                            <p-dropdown appendTo="body" placeholder="Entrada/Saída" optionValue="value" formControlName="type" [options]="options" styleClass="w-full"></p-dropdown>
+                                        </div>
+                                        <div class="col-6 md:col-2">
+                                            <input formControlName="value" placeholder="R$ 0,00" currencyMask pInputText class="w-full"  type="text">
+                                        </div>
+                                        <div class="col-12 md:col-2">
+                                            <p-button [disabled]="!form.valid" (onClick)="update(i)"  styleClass="w-full" label="Salvar"></p-button>
+                                        </div>
+                                    </form>
+                                </form>
+                            </p-dialog>
                         </td>
                     </tr>
                 </tbody>
@@ -58,3 +90,4 @@
         </div>
     </div>
 </section>
+

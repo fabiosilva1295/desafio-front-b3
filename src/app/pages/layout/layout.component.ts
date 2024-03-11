@@ -10,8 +10,6 @@ export class LayoutComponent implements OnInit {
 
   visible: boolean = false;
 
-  defaultLayout: number | string = LayoutType['B3A'];
-
 
   constructor() { }
 

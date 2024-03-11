@@ -15,6 +15,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {DialogModule} from 'primeng/dialog';
+
 
 
 
@@ -51,6 +55,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     DropdownModule,
     ButtonModule,
     ReactiveFormsModule,
+    OverlayPanelModule,
+    ConfirmDialogModule,
+    DialogModule,
     NgxMaskModule.forRoot()
   ],
   providers: [

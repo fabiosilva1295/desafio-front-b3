@@ -1,4 +1,4 @@
-<section *ngIf="!defaultLayout" class=" overflow-hidden container__B3A h-full w-full flex">
+<section  class=" overflow-hidden container__B3A h-full w-full flex">
     <p-sidebar  [style]="{width:'auto', padding: '0'}" styleClass="p-0" class="md:hidden" [(visible)]="visible">
         <app-sidenav></app-sidenav>
     </p-sidebar>
@@ -9,12 +9,4 @@
             <router-outlet></router-outlet>
         </section>
     </main>
-</section>
-
-<section *ngIf="defaultLayout" class="container__B3B h-full w-full flex flex-column">
-    <app-header></app-header>
-    <main>
-
-    </main>
-    <app-footer></app-footer>
 </section>
